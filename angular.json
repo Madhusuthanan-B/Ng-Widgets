@@ -8,7 +8,11 @@
       "sourceRoot": "projects/features-overview/src",
       "projectType": "application",
       "prefix": "fo",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +27,7 @@
               "projects/features-overview/src/assets"
             ],
             "styles": [
-              "projects/features-overview/src/styles.css"
+              "projects/features-overview/src/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -80,7 +84,7 @@
             "tsConfig": "projects/features-overview/tsconfig.spec.json",
             "karmaConfig": "projects/features-overview/karma.conf.js",
             "styles": [
-              "projects/features-overview/src/styles.css"
+              "projects/features-overview/src/styles.scss"
             ],
             "scripts": [],
             "assets": [
