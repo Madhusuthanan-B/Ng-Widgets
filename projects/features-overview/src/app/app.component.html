@@ -1,1 +1,5 @@
-<lib-radial-progress></lib-radial-progress>
+<div class="widgets_demo">
+    <ng-container *ngFor="let settings of radialWidgets">
+      <lib-radial-progress [props]="settings"></lib-radial-progress>
+    </ng-container>
+  </div>
