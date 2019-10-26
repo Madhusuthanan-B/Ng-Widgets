@@ -1,4 +1,5 @@
 export class RadialProgress {
+    id: string;
     radius: number;
     start: number;
     end: number;
@@ -7,7 +8,6 @@ export class RadialProgress {
 }
 
 export class RadialGradient {
-    id: string;
     start: string;
     end: string;
 }

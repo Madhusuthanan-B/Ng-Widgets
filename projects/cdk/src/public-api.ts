@@ -3,6 +3,5 @@
  */
 
 export * from './lib/cdk.service';
-export * from './lib/cdk.component';
 export * from './lib/cdk.module';
 export * from './lib/radial-progress/radial-progress.model';

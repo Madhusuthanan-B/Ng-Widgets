@@ -65,7 +65,7 @@ export class RadialProgressComponent implements OnInit {
 
     this.gradient = this.svg.append("svg:defs")
       .append("svg:linearGradient")
-      .attr("id", this.props.gradient.id)
+      .attr("id", this.props.id)
       .attr("x1", "0%")
       .attr("y1", "50%")
       .attr("x2", "50%")
@@ -96,7 +96,7 @@ export class RadialProgressComponent implements OnInit {
 
     this.front = meter.append('path')
       .attr('class', 'foreground')
-      .attr('fill', `url(#${this.props.gradient.id})`)
+      .attr('fill', `url(#${this.props.id})`)
       .attr('fill-opacity', 1);
 
     this.numberText = meter.append('text')

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CdkComponent } from './cdk.component';
 import { RadialProgressModule } from './radial-progress/radial-progress.module';
 
 @NgModule({
-  declarations: [CdkComponent],
+  declarations: [],
   imports: [
     RadialProgressModule
   ],
-  exports: [CdkComponent, RadialProgressModule]
+  exports: [RadialProgressModule]
 })
 export class CdkModule { }

@@ -17,44 +17,44 @@ export class AppComponent {
   ngOnInit() {
     this.radialWidgets = [
       {
+        id: this.uniqueId(),
         radius: 80,
         start: 0,
         end: 0.80,
         gradient: {
-          id: 'widget1',
           start: GRADIENT.START,
           end: GRADIENT.END
         },
         fillTime: 50
       },
       {
+        id: this.uniqueId(),
         radius: 80,
         start: 0,
         end: 0.96,
         gradient: {
-          id: this.uniqueId(),
           start: GRADIENT.START,
           end: GRADIENT.END
         },
         fillTime: 20
       },
       {
+        id: this.uniqueId(),
         radius: 80,
         start: 0,
         end: 0.4,
         gradient: {
-          id: this.uniqueId(),
           start: GRADIENT.START,
           end: GRADIENT.END
         },
         fillTime: 30
       },
       {
+        id: this.uniqueId(),
         radius: 80,
         start: 0,
         end: 0.82,
         gradient: {
-          id: this.uniqueId(),
           start: GRADIENT.START,
           end: GRADIENT.END
         },
