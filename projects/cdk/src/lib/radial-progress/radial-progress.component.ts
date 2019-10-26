@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 
-import { RadialProgress } from './radial-progress.model';
+import { RadialProgress, RadialLabel } from './radial-progress.model';
 
 @Component({
   selector: 'lib-radial-progress',
@@ -33,6 +33,7 @@ export class RadialProgressComponent implements OnInit {
   private endGradient: string;
   private fillTime: number;
   private label: any;
+  private radialLabel: RadialLabel;
 
   constructor() { }
 
@@ -46,6 +47,7 @@ export class RadialProgressComponent implements OnInit {
     this.startGradient = this.props.gradient.start;
     this.endGradient = this.props.gradient.end;
     this.fillTime = this.props.fillTime;
+    this.radialLabel = this.props.label;
 
     this.count = Math.abs((this.endPercent - this.startPercent) / 0.01)
 
@@ -132,8 +134,13 @@ export class RadialProgressComponent implements OnInit {
 
   updateBar() {
     this.front.attr('d', this.arc.endAngle(this.twoPi * this.progress));
-    this.numberText.text(this.formatPercent(this.progress));
-    if(this.props.label) {
+    if (this.radialLabel && this.radialLabel.value) {
+      this.numberText.text(this.radialLabel.value);
+    } else {
+      this.numberText.text(this.formatPercent(this.progress));
+    }
+
+    if (this.props.label) {
       this.label.text(this.props.label.name);
     }
   }

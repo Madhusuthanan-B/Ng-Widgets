@@ -16,4 +16,5 @@ export class RadialGradient {
 export class RadialLabel {
     name: string;
     color: string;
+    value?: string;
 }

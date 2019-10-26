@@ -31,7 +31,8 @@ export class AppComponent {
         },
         label: {
           name: 'Upper Gear',
-          color: COLORS.LABEL
+          color: COLORS.LABEL,
+          value: '1345'
         },
         fillTime: 50
       },
@@ -46,7 +47,8 @@ export class AppComponent {
         },
         label: {
           name: 'Propeller Torque',
-          color: COLORS.LABEL
+          color: COLORS.LABEL,
+          value: '2900'
         },
         fillTime: 20
       },
