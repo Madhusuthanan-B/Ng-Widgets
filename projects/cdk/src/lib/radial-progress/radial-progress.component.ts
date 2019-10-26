@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 
 import { RadialProgress } from './radial-progress.model';
@@ -6,7 +6,8 @@ import { RadialProgress } from './radial-progress.model';
 @Component({
   selector: 'lib-radial-progress',
   templateUrl: './radial-progress.component.html',
-  styleUrls: ['./radial-progress.component.css']
+  styleUrls: ['./radial-progress.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RadialProgressComponent implements OnInit {
   @Input() props: RadialProgress;
@@ -26,11 +27,12 @@ export class RadialProgressComponent implements OnInit {
   svg: any;
   gradient: any;
   front: any;
-  numberText: any;
+  private numberText: any;
   private progress: any;
   private startGradient: string;
   private endGradient: string;
   private fillTime: number;
+  private label: any;
 
   constructor() { }
 
@@ -104,6 +106,15 @@ export class RadialProgressComponent implements OnInit {
       .attr('text-anchor', 'middle')
       .attr('dy', '.278em')
       .attr('class', 'radial__text');
+
+    if (this.props.label) {
+      this.label = meter.append('text')
+        .attr('fill', this.props.label.color)
+        .attr('text-anchor', 'middle')
+        .attr('dy', '3em')
+        .attr('class', 'label');
+    }
+
   }
 
   startFilling() {
@@ -122,6 +133,9 @@ export class RadialProgressComponent implements OnInit {
   updateBar() {
     this.front.attr('d', this.arc.endAngle(this.twoPi * this.progress));
     this.numberText.text(this.formatPercent(this.progress));
+    if(this.props.label) {
+      this.label.text(this.props.label.name);
+    }
   }
 
 }

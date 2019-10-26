@@ -6,6 +6,10 @@ const GRADIENT = {
   END: '#0072ff'
 };
 
+const COLORS =  {
+  LABEL: '#adadad'
+}
+
 @Component({
   selector: 'fo-root',
   templateUrl: './app.component.html',
@@ -25,6 +29,10 @@ export class AppComponent {
           start: GRADIENT.START,
           end: GRADIENT.END
         },
+        label: {
+          name: 'Upper Gear',
+          color: COLORS.LABEL
+        },
         fillTime: 50
       },
       {
@@ -36,6 +44,10 @@ export class AppComponent {
           start: GRADIENT.START,
           end: GRADIENT.END
         },
+        label: {
+          name: 'Propeller Torque',
+          color: COLORS.LABEL
+        },
         fillTime: 20
       },
       {
@@ -44,8 +56,12 @@ export class AppComponent {
         start: 0,
         end: 0.4,
         gradient: {
-          start: GRADIENT.START,
-          end: GRADIENT.END
+          start: '#EA384D',
+          end: '#EA384D'
+        },
+        label: {
+          name: 'Bearings',
+          color: COLORS.LABEL
         },
         fillTime: 30
       },
@@ -57,6 +73,10 @@ export class AppComponent {
         gradient: {
           start: GRADIENT.START,
           end: GRADIENT.END
+        },
+        label: {
+          name: 'Propeller Speed',
+          color: COLORS.LABEL
         },
         fillTime: 30
       }
