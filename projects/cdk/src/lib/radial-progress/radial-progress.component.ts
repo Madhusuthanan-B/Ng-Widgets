@@ -20,7 +20,7 @@ export class RadialProgressComponent implements OnInit {
   private endPercent = 0.80;
   private twoPi = Math.PI * 2;
   formatPercent = d3.format('.0%');
-  private boxSize = (this.radius + this.padding) * 2;
+  private boxSize;
   private count;
   step = this.endPercent < this.startPercent ? -0.01 : 0.01
   arc: any;
@@ -49,7 +49,8 @@ export class RadialProgressComponent implements OnInit {
     this.fillTime = this.props.fillTime;
     this.radialLabel = this.props.label;
 
-    this.count = Math.abs((this.endPercent - this.startPercent) / 0.01)
+    this.count = Math.abs((this.endPercent - this.startPercent) / 0.01);
+    this.boxSize =  (this.radius + this.padding) * 2;
 
     this.progress = this.props.start;
     this.drawRadialProgress();

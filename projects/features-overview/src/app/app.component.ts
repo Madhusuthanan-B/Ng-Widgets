@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RadialProgress } from 'cdk';
+import { ThrusterAdapter } from './adapters/thruster-adapters';
+import { environment } from '../environments/environment';
 
 const GRADIENT = {
   START: '#00c6ff',
@@ -17,12 +19,35 @@ const COLORS =  {
 })
 export class AppComponent {
   radialWidgets: RadialProgress[];
+  adapter: ThrusterAdapter;
 
   ngOnInit() {
+    this.adapter = new ThrusterAdapter(environment.source);
+    this.initializeWidgets();
+  }
+
+  private initializeWidgets() {
+    let thrusterData = this.adapter.thrusterData()
     this.radialWidgets = [
       {
         id: this.uniqueId(),
-        radius: 80,
+        radius: 200,
+        start: 0,
+        end: 0.90,
+        gradient: {
+          start: GRADIENT.START,
+          end: GRADIENT.END
+        },
+        label: {
+          name: 'Propeller Torque',
+          color: COLORS.LABEL,
+          value: thrusterData.propellerTorque.toString()
+        },
+        fillTime: 100
+      },
+      {
+        id: this.uniqueId(),
+        radius: 100,
         start: 0,
         end: 0.80,
         gradient: {
@@ -32,7 +57,7 @@ export class AppComponent {
         label: {
           name: 'Upper Gear',
           color: COLORS.LABEL,
-          value: '1345'
+          value: thrusterData.upperGear.toString()
         },
         fillTime: 50
       },
@@ -42,13 +67,13 @@ export class AppComponent {
         start: 0,
         end: 0.96,
         gradient: {
-          start: GRADIENT.START,
-          end: GRADIENT.END
+          start: '#71339e',
+          end: '#bea2d2'
         },
         label: {
-          name: 'Propeller Torque',
+          name: 'Thrust',
           color: COLORS.LABEL,
-          value: '2900'
+          value: thrusterData.thrust.toString()
         },
         fillTime: 20
       },
@@ -63,7 +88,8 @@ export class AppComponent {
         },
         label: {
           name: 'Bearings',
-          color: COLORS.LABEL
+          color: COLORS.LABEL,
+          value: thrusterData.bearings.toString()
         },
         fillTime: 30
       },
@@ -78,7 +104,8 @@ export class AppComponent {
         },
         label: {
           name: 'Propeller Speed',
-          color: COLORS.LABEL
+          color: COLORS.LABEL,
+          value: thrusterData.propellerSpeed.toString()
         },
         fillTime: 30
       }
