@@ -31,9 +31,9 @@ export class AppComponent {
     this.radialWidgets = [
       {
         id: this.uniqueId(),
-        radius: 200,
+        radius: 100,
         start: 0,
-        end: 0.90,
+        end: thrusterData.propellerTorque.completeness,
         gradient: {
           start: GRADIENT.START,
           end: GRADIENT.END
@@ -41,15 +41,15 @@ export class AppComponent {
         label: {
           name: 'Propeller Torque',
           color: COLORS.LABEL,
-          value: thrusterData.propellerTorque.toString()
+          value: thrusterData.propellerTorque.data.toString()
         },
-        fillTime: 100
+        fillTime: 10
       },
       {
         id: this.uniqueId(),
-        radius: 100,
+        radius: 80,
         start: 0,
-        end: 0.80,
+        end: thrusterData.upperGear.completeness,
         gradient: {
           start: GRADIENT.START,
           end: GRADIENT.END
@@ -57,15 +57,15 @@ export class AppComponent {
         label: {
           name: 'Upper Gear',
           color: COLORS.LABEL,
-          value: thrusterData.upperGear.toString()
+          value: thrusterData.upperGear.data.toString()
         },
-        fillTime: 50
+        fillTime: 10
       },
       {
         id: this.uniqueId(),
         radius: 80,
         start: 0,
-        end: 0.96,
+        end: thrusterData.thrust.completeness,
         gradient: {
           start: '#71339e',
           end: '#bea2d2'
@@ -73,15 +73,15 @@ export class AppComponent {
         label: {
           name: 'Thrust',
           color: COLORS.LABEL,
-          value: thrusterData.thrust.toString()
+          value: thrusterData.thrust.data.toString()
         },
-        fillTime: 20
+        fillTime: 10
       },
       {
         id: this.uniqueId(),
         radius: 80,
         start: 0,
-        end: 0.4,
+        end: thrusterData.bearings.completeness,
         gradient: {
           start: '#EA384D',
           end: '#EA384D'
@@ -89,15 +89,15 @@ export class AppComponent {
         label: {
           name: 'Bearings',
           color: COLORS.LABEL,
-          value: thrusterData.bearings.toString()
+          value: thrusterData.bearings.data.toString()
         },
-        fillTime: 30
+        fillTime: 10
       },
       {
         id: this.uniqueId(),
         radius: 80,
         start: 0,
-        end: 0.82,
+        end: thrusterData.propellerSpeed.completeness,
         gradient: {
           start: GRADIENT.START,
           end: GRADIENT.END
@@ -105,9 +105,9 @@ export class AppComponent {
         label: {
           name: 'Propeller Speed',
           color: COLORS.LABEL,
-          value: thrusterData.propellerSpeed.toString()
+          value: thrusterData.propellerSpeed.data.toString()
         },
-        fillTime: 30
+        fillTime: 10
       }
     ];
   }

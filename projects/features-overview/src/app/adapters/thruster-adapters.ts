@@ -6,11 +6,26 @@ export interface IThruster {
 }
 
 export interface IThrusterData {
-    propellerTorque: number;
-    upperGear: number;
-    bearings: number;
-    propellerSpeed: number;
-    thrust: number;
+    propellerTorque: {
+        data: number;
+        completeness: number;
+    };
+    upperGear:  {
+        data: number;
+        completeness: number;
+    };
+    bearings:  {
+        data: number;
+        completeness: number;
+    };
+    propellerSpeed:  {
+        data: number;
+        completeness: number;
+    };
+    thrust:  {
+        data: number;
+        completeness: number;
+    };
 }
 
 export class GaloreThrusters {
@@ -21,11 +36,26 @@ export class GaloreThrusters {
 
     getData(): IThrusterData {
         return {
-            propellerTorque: this.galoreData.thrusters.propellerTorque.value,
-            upperGear: this.galoreData.thrusters.upperGear.value,
-            bearings: this.galoreData.thrusters.bearings.value,
-            propellerSpeed: this.galoreData.thrusters.propellerSpeed.value,
-            thrust: this.galoreData.thrusters.thrust.value
+            propellerTorque:  {
+                data: this.galoreData.thrusters.propellerTorque.value,
+                completeness: this.galoreData.thrusters.propellerTorque.completeness
+            },
+            upperGear: {
+                data:  this.galoreData.thrusters.upperGear.value,
+                completeness:  this.galoreData.thrusters.upperGear.completeness
+            },
+            bearings: {
+                data: this.galoreData.thrusters.bearings.value,
+                completeness: this.galoreData.thrusters.bearings.completeness
+            },
+            propellerSpeed: {
+                data: this.galoreData.thrusters.propellerSpeed.value,
+                completeness: this.galoreData.thrusters.propellerSpeed.completeness
+            },
+            thrust: {
+                data: this.galoreData.thrusters.thrust.value,
+                completeness: this.galoreData.thrusters.thrust.completeness
+            }
         };
     }
 }
@@ -38,11 +68,26 @@ export class InfluxThrusters {
 
     getData(): IThrusterData {
         return {
-            propellerTorque: this.influxData.main.propTorque.data,
-            upperGear: this.influxData.main.upGear.data,
-            bearings: this.influxData.main.bearings.data,
-            propellerSpeed: this.influxData.main.propSpeed.data,
-            thrust: this.influxData.main.thrust.data
+            propellerTorque: {
+                data: this.influxData.main.propTorque.data,
+                completeness: this.influxData.main.propTorque.completeness
+            },
+            upperGear: {
+                data: this.influxData.main.upGear.data,
+                completeness: this.influxData.main.upGear.completeness
+            },
+            bearings: {
+                data: this.influxData.main.bearings.data,
+                completeness: this.influxData.main.bearings.completeness
+            },
+            propellerSpeed: {
+                data: this.influxData.main.propSpeed.data,
+                completeness: this.influxData.main.propSpeed.completeness
+            },
+            thrust: {
+                data: this.influxData.main.thrust.data,
+                completeness: this.influxData.main.thrust.completeness
+            }
         };
     }
 }
